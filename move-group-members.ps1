@@ -23,7 +23,7 @@ if ($group) {
     $members = Get-ADGroupMember -Identity $groupName -Recursive
 
     foreach ($member in $members) {
-        # Move user objects to the target OU
+        
         if ($member.objectClass -eq "user") {
             try {
                 Move-ADObject -Identity $member.DistinguishedName -TargetPath $targetOU
